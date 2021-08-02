@@ -1,0 +1,5 @@
+# QT Builds
+build-*
+
+# User configuration
+*.user
