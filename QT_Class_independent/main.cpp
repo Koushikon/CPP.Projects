@@ -1,5 +1,6 @@
+#include <QCoreApplication>
 #include "account.h"
-#include <iostream>
+#include<iostream>
 
 using std::cout;
 using std::endl;
@@ -11,11 +12,13 @@ void withdraw_status(bool wd_status, double &bal)
     if (wd_status == false)
         cout << bal << " Balance Insufficient, Can't possible" << endl;
     else
-        cout << "Successfully withdrawal money " << bal << endl;
+        cout << "Successfully withdrawal money "<< bal << endl;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Account frank_ac;
     Account *mary_ac = new Account;
 
@@ -25,7 +28,7 @@ int main()
     cout << "Current balance Mary's " << mary_ac->get_balance() << endl;
 
     frank_ac.deposit(400.00);
-    cout << "After deposit " << 400.00 << " Current balance Frank's " << frank_ac.get_balance() << endl
+    cout << "After deposit "<< 400.00 << " Current balance Frank's " << frank_ac.get_balance() << endl
          << endl;
 
     bool status{};
@@ -47,5 +50,5 @@ int main()
 
     delete mary_ac; // Releasing the mary_ac
 
-    return 0;
+    return a.exec();
 }
