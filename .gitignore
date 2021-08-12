@@ -7,4 +7,7 @@ build-*
 # User configuration
 *.user
 
+# raylib file
+*.dsym
+
 desktop.ini

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(QT_cout LANGUAGES CXX)
+project(QT_print LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 
-add_executable(QT_cout
+add_executable(QT_print
   main.cpp
 )
-target_link_libraries(QT_cout Qt${QT_VERSION_MAJOR}::Core)
+target_link_libraries(QT_print Qt${QT_VERSION_MAJOR}::Core)

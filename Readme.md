@@ -1,6 +1,6 @@
 # 🎭 QT Projects Repository
 
-I am a student learning QT recently from online courses 👷‍♂️. and creating some projects QT and C++ Projects on my own.
+I am a student learning `QT` and `raylib` recently from online courses from internet sources 👷‍♂️ and created some Projects on `QT`, `raylib` and `C++ `on my own.
 
 ![CPP_Logo](./_Files/QT_banner.png)
 
