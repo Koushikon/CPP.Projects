@@ -5,6 +5,7 @@
 #include <sstream>
 #include <string>
 #include <array>
+#include <cstdlib>
 
 using std::array;
 using std::cin;
@@ -13,9 +14,9 @@ using std::string;
 using std::stringstream;
 
 // Hardcoded values
-const short AGE_CALCULATOR_VERSION = 1;
-const short MIN_YEAR = 1950;
-const short CURRENT_YEAR = 2021;
+const short AGE_CALCULATOR_VERSION{2};
+const short MIN_YEAR{1950};
+const short CURRENT_YEAR{2021};
 
 class Age_calculator
 {

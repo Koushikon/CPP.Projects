@@ -34,8 +34,8 @@ void Age_calculator::display_age()
 {
     cout << "[#] " << name << " Now you are "
          << dob.at(2) << " Years, "
-         << dob.at(1) << " Month, "
-         << dob.at(0) << " Days old.\n";
+         << std::abs(dob.at(1)) << " Month, "
+         << std::abs(dob.at(0)) << " Days old.\n";
 }
 
 // Standalone functions
