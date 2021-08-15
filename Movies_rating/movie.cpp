@@ -1,12 +1,12 @@
 #include "movie.h"
 
-Movie::Movie(string _name, string _rate, short _r_year, float _review)
-    : name{_name}, rate{_rate}, r_year{_r_year}, review{_review}
-{
-    watched++;
-}
+Movie::Movie(string _name, string _rate, short _watched, short _r_year, float _review)
+    : name{_name}, rate{_rate}, watched{_watched}, r_year{_r_year}, review{_review} {}
 
-Movie::~Movie() {}
+Movie::~Movie()
+{
+    cout << " \"" << name << "\" ";
+}
 
 void Movie::display_movie() const
 {

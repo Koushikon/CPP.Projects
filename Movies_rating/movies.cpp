@@ -2,12 +2,15 @@
 
 Movies::Movies() {}
 
-Movies::~Movies() {}
+Movies::~Movies()
+{
+    cout << "✔  Destroying Movies \n\tMovie: ";
+}
 
 void Movies::add_movie()
 {
     string name{};
-    short rate{}, year{};
+    short rate{}, year{}, watch{};
     float star{};
     array<string, 5> rating{"G", "PG", "PG-13", "NC-17", "R"};
 
@@ -47,13 +50,18 @@ void Movies::add_movie()
     } while (year < 1860 || year > 2021);
     do
     {
+        cout << "[+] How many times you watched this movie? ";
+        cin >> watch;
+    } while (watch < 1 || watch > 100);
+    do
+    {
         cout << "[+] Your Review between 1 to 5.0? ";
         cin >> star;
     } while (star < 1 || star > 5.0);
     cin.ignore();
 
     {
-        Movie *mv1 = new Movie{name, rating.at(rate), year, star};
+        Movie *mv1 = new Movie{name, rating.at(rate), watch, year, star};
         movie_list.push_back(*mv1);
         delete mv1;
     }

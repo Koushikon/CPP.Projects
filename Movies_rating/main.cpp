@@ -20,13 +20,17 @@ int main()
     cout << "= = = = = = = = = = =\n"
          << "Movies® App version " << MOVIES_APP_VERSION << "\n\n";
 
-    Movies mvs1;
-    mvs1.watch_movie();
-    mvs1.add_movie();
-    mvs1.add_movie();
-    mvs1.watch_movie();
-    mvs1.watch_movie();
-    mvs1.display_movies();
+    {
+        Movies mvs1;
+        // mvs1.display_movies();
+        // mvs1.watch_movie();
+        mvs1.add_movie();
+        mvs1.add_movie();
+        mvs1.watch_movie();
+        mvs1.watch_movie();
+        mvs1.display_movies();
+    }
+    cout << " Destroyed\n\n";
 
     cout << "= = = = = X = = = = =\n";
 

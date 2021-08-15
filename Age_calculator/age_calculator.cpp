@@ -9,7 +9,10 @@ int check_valid_year(int &year);
 
 Age_calculator::Age_calculator(string _name) : name{_name} {}
 
-Age_calculator::~Age_calculator() {}
+Age_calculator::~Age_calculator()
+{
+    cout << "[#] " << name << " has died.\n";
+}
 
 // Class functions
 

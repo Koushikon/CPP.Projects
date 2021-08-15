@@ -17,7 +17,7 @@ class Movie
     // double budget;
 
 public:
-    Movie(string _name, string _rate, short _r_year, float _review);
+    Movie(string _name, string _rate, short _watched, short _r_year, float _review);
     ~Movie();
 
     void display_movie() const;
