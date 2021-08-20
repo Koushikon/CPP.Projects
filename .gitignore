@@ -7,7 +7,11 @@ build-*
 # User configuration
 *.user
 
+# raylib .vscode and MAKEFILE
+raylib_*/.vscode
+raylib_*/Makefile
+
 # raylib file
-*.dsym
+# *.dsym
 
 desktop.ini
