@@ -1,10 +1,10 @@
 #include "password.h"
 
-Password::Password(string message) : org_message{message} {}
+Password::Password(string __message, short __level) : org_message{__message}, level{__level} {}
 
 Password::~Password()
 {
-    cout << "[#] Object Memory Released\n";
+    // cout << "[#] ⊙ \t Object Memory Released --->> \n\n";
 }
 
 void const Password::display_message()
@@ -28,32 +28,82 @@ void const Password::display_message(const string &&message_disp, const vector<s
 
 void Password::encrypting_it()
 {
-    size_t encrypt{};
-    for (size_t i{}; i < org_message.length(); ++i)
+    switch (level)
     {
-        // Aplly Extra encryption
-        encrypt = static_cast<size_t>(org_message.at(i)) * 16;
-        // Remembering the deviding key
-        msg_keys.push_back(encrypt / 94);
-        // Getting ascii number between 33 to 126
-        crypto_msg.push_back((encrypt % 94) + 33);
+    case 2:
+    {
+        level_of_encryption_1(org_message, crypto_msg, msg_keys_1);
+        level_of_encryption_2(org_message, crypto_msg, msg_keys_2);
+    }
+    break;
+    case 1:
+    default:
+        level_of_encryption_1(org_message, crypto_msg, msg_keys_1);
+        break;
     }
     display_message("Encrypted Password", crypto_msg);
 }
 
+void Password::level_of_encryption_1(const string &message, vector<size_t> &cryptic, vector<size_t> &keys)
+{
+    size_t encrypt{};
+    for (size_t i{}; i < message.length(); ++i)
+    {
+        // Aplly Extra encryption
+        encrypt = static_cast<size_t>(message.at(i)) * 16;
+        // Remembering the deviding key
+        keys.push_back(encrypt / 94);
+        // Getting ascii number between 33 to 126
+        cryptic.push_back((encrypt % 94) + 33);
+    }
+}
+
+void Password::level_of_encryption_2(const string &message, vector<size_t> &cryptic, vector<double> &keys)
+{
+    for (size_t i{}; i < cryptic.size(); ++i)
+    {
+        keys.push_back((static_cast<double>(cryptic.at(i)) + static_cast<double>(message.at(i))) / 2);
+        cryptic.at(i) = std::floor(keys.at(i));
+    }
+}
+
 void Password::decrypting_it()
 {
-    size_t decrypt{};
-    for (size_t i{}; i < crypto_msg.size(); ++i)
+    switch (level)
     {
-        // Setting up the ascii number
-        decrypt = (crypto_msg.at(i) - 33);
-        // Getting back the middle form of encrypted number
-        decrypt = (decrypt + (std::floor(msg_keys.at(i)) * 94));
-        // Aplly Extra decryption
-        dcrypto_msg.push_back(decrypt / 16);
+    case 2:
+    {
+        level_of_decryption_2(org_message, crypto_msg, msg_keys_2);
+        level_of_decryption_1(crypto_msg, dcrypto_msg, msg_keys_1);
+    }
+    break;
+    case 1:
+    default:
+        level_of_decryption_1(crypto_msg, dcrypto_msg, msg_keys_1);
+        break;
     }
     display_message("Decrypted Password", dcrypto_msg);
+}
+
+void Password::level_of_decryption_2(const string &message, vector<size_t> &cryptic, const vector<double> &keys)
+{
+    for (size_t i{}; i < keys.size(); ++i)
+        cryptic.at(i) = (keys.at(i) * 2) - message.at(i);
+}
+
+void Password::level_of_decryption_1(const vector<size_t> &cryptic, vector<size_t> &d_cryptic, const vector<size_t> &keys)
+{
+    size_t decrypt{};
+    for (size_t i{}; i < keys.size(); ++i)
+    {
+        // Setting up the ascii number
+        decrypt = (cryptic.at(i) - 33);
+        // Getting back the middle form of encrypted number
+        decrypt = decrypt + (std::floor(keys.at(i)) * 94);
+
+        // Aplly Extra decryption
+        d_cryptic.push_back(decrypt / 16);
+    }
 }
 
 bool Password::compare_original_decrypt_message()

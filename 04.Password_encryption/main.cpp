@@ -7,26 +7,34 @@ int main()
 {
     cout << "= = = = = = = = = = =\n\tPassword Encryption® version "
          << PASSWORD_ENCRYPTION_VERSION
-         << "\n= = = = = = = = = = =\n\n";
+         << "\n= = = = = = = = = = =\n";
+
+    /*
+    Initialize the password program
+    */
 
     do
     {
         string org_message{};
-        cout << "[+] Enter your Password? ";
+        cout << "\n[+] Enter your Password? ";
         cin >> org_message;
 
         short level{};
         do
         {
-            cout << "[+] Enter encryption Level between 1 to 5? ";
+            cout << "[+] Decide encryption Level between 1 to 5? ";
             cin >> level;
         } while (level < 1 || level > 5);
 
         // Next we're passing the level of encryption
-        Password ps1{org_message};
+        Password ps1{org_message, level};
         perform_operations(ps1);
 
     } while (once_again() == 'y');
+
+    /*
+    End of the password program
+    */
 
     cout << "\n= = = = = X = = = = =\n\tEnd Of Password Encryption\n= = = = = X = = = = =";
 
