@@ -67,6 +67,10 @@ void Password::level_of_encryption_2(const string &message, vector<size_t> &cryp
     }
 }
 
+void Password::level_of_encryption_3()
+{
+}
+
 void Password::decrypting_it()
 {
     switch (level)
@@ -83,6 +87,10 @@ void Password::decrypting_it()
         break;
     }
     display_message("Decrypted Password", dcrypto_msg);
+}
+
+void Password::level_of_decryption_3()
+{
 }
 
 void Password::level_of_decryption_2(const string &message, vector<size_t> &cryptic, const vector<double> &keys)

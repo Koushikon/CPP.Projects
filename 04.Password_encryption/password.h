@@ -32,10 +32,12 @@ private:
     // Level of encryption
     void level_of_encryption_1(const string &message, vector<size_t> &cryptic, vector<size_t> &keys);
     void level_of_encryption_2(const string &message, vector<size_t> &cryptic, vector<double> &keys);
+    void level_of_encryption_3();
 
     // Level of decryption
     void level_of_decryption_1(const vector<size_t> &cryptic, vector<size_t> &d_cryptic, const vector<size_t> &keys);
     void level_of_decryption_2(const string &message, vector<size_t> &cryptic, const vector<double> &keys);
+    void level_of_decryption_3();
 
 protected:
     // vector display function
