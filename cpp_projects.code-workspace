@@ -5,6 +5,16 @@
 		}
 	],
 	"settings": {
+		"files.exclude": {
+			"**/*.ini": true,
+			"**/.git": true,
+			"**/*.o": true,
+			"**/*.exe": true,
+			// QT *.user file
+			"**/*.user": true,
+			// QT Build files
+			"build-*/": true,
+		},
 		"files.defaultLanguage": "${activeEditorLanguage}"
 	}
 }

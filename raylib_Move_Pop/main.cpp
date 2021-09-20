@@ -7,18 +7,19 @@ int main(void)
 
     InitWindow(screenWidth, screenHeight, "✔ Game window");
 
-    SetTargetFPS(60); // Set our game to run at 60 frames-per-second
-
-    unsigned short square_X{450}, square_Y{400};
+    unsigned short square_X{0}, square_Y{400};
     unsigned short square{50};
     unsigned short move{10}, burst{6};
+
+    unsigned short square2_X{0}, square2_Y{400};
 
     int circle_x{150};
     int circle_y{100};
     int circle_radius{50};
 
-    int crcl_direction1{10}, crcl_direction2{10};
-    unsigned short unseen_pos{5000};
+    SetTargetFPS(60); // Set our game to run at 60 frames-per-second
+
+    int crcl_direction1{5}, crcl_direction2{5};
 
     while (!WindowShouldClose()) // Detect window close button or ESC key
     {
@@ -26,10 +27,7 @@ int main(void)
 
         ClearBackground(BLACK);
 
-        // DrawText("just For Fun", 250, 200, 20, BLACK);
-
         DrawRectangle(square_X, square_Y, square, square, WHITE);
-
         DrawCircle(circle_x, circle_y, circle_radius, YELLOW);
 
         // Circle Going up and down of the screen
@@ -69,6 +67,8 @@ int main(void)
         // Square Boom 💥
         if (square < 175)
         {
+            square2_X = square_X + 60;
+            square2_Y = square_Y + 60;
             if (IsKeyDown(KEY_X))
             {
                 square += burst;
@@ -77,7 +77,11 @@ int main(void)
             }
         }
         else
-            square_X = square_Y = unseen_pos;
+        {
+            square_X = square2_X;
+            square_Y = square2_Y;
+            square = 50;
+        }
 
         EndDrawing();
     }

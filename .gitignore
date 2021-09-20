@@ -10,5 +10,7 @@ build-*
 # raylib file
 # *.dsym
 
+# Exclude Files
 desktop.ini
 folder.ico
+raylib_Move_as_mouse
