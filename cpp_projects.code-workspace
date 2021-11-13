@@ -15,6 +15,7 @@
 			// QT Build files
 			"build-*/": true,
 		},
-		"files.defaultLanguage": "${activeEditorLanguage}"
+		"files.defaultLanguage": "${activeEditorLanguage}",
+		"editor.formatOnSave": true,
 	}
 }

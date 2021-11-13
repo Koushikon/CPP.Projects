@@ -1,0 +1,32 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"raylib.h": "cpp",
+			"math.h": "cpp",
+			"blocks.h": "cpp",
+			"stdio.h": "cpp",
+			"*.m": "cpp"
+		},
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true,
+			"**/*.o": true,
+			"**/*.exe": true,
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"jeff-hykin.better-cpp-syntax",
+			"ms-vscode.cpptools",
+			"ms-vscode.cpptools-extension-pack"
+		],
+	}
+}
