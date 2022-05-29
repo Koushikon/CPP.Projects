@@ -10,6 +10,10 @@ build-*
 # raylib file
 # *.dsym
 
+# CMake Projects
+CMake_*/.vscode
+CMake_*/build
+
 # Exclude Files
 desktop.ini
 folder.ico

@@ -10,6 +10,11 @@
 			"**/.git": true,
 			"**/*.o": true,
 			"**/*.exe": true,
+			
+			// CMake Build files
+			"CMake_*/.vscode": true,
+			"CMake_*/build": true,
+			
 			// QT *.user file
 			"**/*.user": true,
 			// QT Build files
